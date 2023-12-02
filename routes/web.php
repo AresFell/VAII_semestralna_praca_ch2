@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Recipe;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
 
@@ -44,6 +45,19 @@ Route::get('/listings/{id}', function ($id) {
     ]);
 });
 
+Route::get('/recipes', function () {
+    return view('recipes', [
+        'heading' => 'Latest Recipe',
+        'recipes' => Recipe::all()
+    ]);
+});
+
+//single listing
+Route::get('/recipes/{id}', function ($id) {
+    return view('recipe', [
+        'recipe' => Recipe::find($id)
+    ]);
+});
 
 
 require __DIR__.'/auth.php';
