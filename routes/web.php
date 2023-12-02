@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Models\Recipe;
+use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,19 +30,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/recipes', function () {
-    return view('recipes', [
-        'heading' => 'Latest Recipe',
-        'recipes' => Recipe::all()
-    ]);
-});
+//Resource routes
+//index
+//show
+//create
+//store
+//edit
+//update
+//destroy
+
+Route::get('/recipes', [RecipeController::class, 'index']);
+
+//show create form
+Route::get('/recipes/create',[RecipeController::class, 'create'] )->name("recipes.create");
 
 //single listing
-Route::get('/recipes/{recipe}', function (Recipe $recipe) {
-    return view('recipe', [
-        'recipe' => $recipe
-    ]);
-});
-
-
+Route::get('/recipes/{recipe}',[RecipeController::class, 'show'] );
 require __DIR__.'/auth.php';
