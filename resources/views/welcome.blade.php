@@ -24,9 +24,11 @@
                         <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
                     </a>
                 </div>
+                <!--
                 <div class="col-auto d-none d-lg-block">
-                    <img src="resources/images/blog-photos/blog_photo_cooking.jpg" class="blog-picture" alt="dokoncoavanie varenia">
+                    <img src="{{asset('images/blog_photo_cooking.jpg')}}" class="blog-picture" alt="dokoncoavanie varenia">
                 </div>
+                -->
             </div>
         </div>
         <div class="col-md-6">
@@ -41,9 +43,11 @@
                         <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
                     </a>
                 </div>
+                <!--
                 <div class="col-auto d-none d-lg-block">
-                    <img src="resources/images/blog-photos/stawberry_jam_cookies.jpg" class="blog-picture" alt="strawberry jam cookies">
+                    <img class="blog-picture" src="{{asset('images/stawberry_jam_cookies.jpg')}}"  alt="strawberry jam cookies">
                 </div>
+                -->
             </div>
         </div>
     </div>

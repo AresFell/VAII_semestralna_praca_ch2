@@ -33,26 +33,5 @@ class DatabaseSeeder extends Seeder
             'ingredients' => '500 g hladkej múky, 2 žĺtky, 1 bielok, kvások, 2 kávové lyžičky soli, 1 modrá kyslá smotana, 2 lyžice masti, 4 polievkové lyžice zemiakového cesta (nastrúhať 2 veľké zemiaky), 500g oškvarkov',
             'instructions' => 'Zmiešame všetko dokopy, necháme nakysnúť. Vyvaľkáme na 0,5 cm, pridáme oškvarky. Celý postup opakujeme tri krát. Cesto necháme odpočívať jednu hodinu. Rozvaľkáme, vykrojíme, pridáme soľ alebo orey, potrieme vajcom a dáme piecť na 200°C na cca 15 minút.'
         ]);
-
-        Listing::create([
-            'title' => 'Laravel Senior Developer',
-            'tags' => 'laravel, javascript',
-            'website' => 'https://www.acme.com',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-        ]);
-
-        Listing::create([
-            'title' => 'Full-Stack Engineer',
-            'tags' => 'laravel, backend ,api',
-            'website' => 'https://www.starkindustries.com',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-        ]);
-        Listing::create([
-        'title' => 'Laravel Developer',
-        'tags' => 'laravel, vue, javascript',
-        'website' => 'https://www.wayneenterprises.com',
-        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-        ]);
-
     }
 }

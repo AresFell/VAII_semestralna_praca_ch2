@@ -30,21 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//all listings
-Route::get('/listings', function () {
-    return view('listings', [
-        'heading' => 'Latest Listing',
-        'listings' => Listing::all()
-    ]);
-});
-
-//single listing
-Route::get('/listings/{id}', function ($id) {
-    return view('listing', [
-        'listing' => Listing::find($id)
-    ]);
-});
-
 Route::get('/recipes', function () {
     return view('recipes', [
         'heading' => 'Latest Recipe',
@@ -53,9 +38,9 @@ Route::get('/recipes', function () {
 });
 
 //single listing
-Route::get('/recipes/{id}', function ($id) {
+Route::get('/recipes/{recipe}', function (Recipe $recipe) {
     return view('recipe', [
-        'recipe' => Recipe::find($id)
+        'recipe' => $recipe
     ]);
 });
 
