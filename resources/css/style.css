@@ -1,0 +1,156 @@
+header footer {
+    background-color: #198754;
+}
+
+.recipe {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.recipe h2 {
+    color: #333;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.recipe ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.recipe li {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.recipe p {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.recipe ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.recipe ol li {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.page-icon {
+    width: 30px;
+    height: 30px;
+}
+
+
+.blog-picture {
+    width: 200px;
+    height: 250px;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 1rem;
+}
+
+.body-formular {
+    font: normal 14px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+    background: #fdfdfd;
+    color: #000000;
+    padding: 50px 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container * {
+    box-sizing: border-box;
+}
+
+.form-formular {
+    padding: 20px;
+    background: #e7eaed;
+    border-radius: 8px;
+}
+
+.flex-outer, .flex-inner {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flex-outer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.flex-outer li, .flex-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.flex-inner {
+    padding: 0 8px;
+    justify-content: space-between;
+}
+
+.flex-outer > li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.flex-outer li label, .flex-outer li p {
+    padding: 8px;
+    font-weight: 300;
+    letter-spacing: .09em;
+    text-transform: lowercase;
+}
+
+.flex-outer > li > label, .flex-outer li p {
+    flex: 1 0 120px;
+    max-width: 220px;
+}
+
+.flex-outer > li > label + *, .flex-inner {
+    flex: 1 0 220px;
+}
+
+.flex-outer li p {
+    margin: 0;
+}
+
+.flex-outer li input:not([type='checkbox']), .flex-outer li textarea {
+    padding: 15px;
+    border: none;
+}
+
+.flex-outer li button {
+    margin-left: auto;
+    padding: 12px 24px;
+    border: none;
+    background: #0d6dfb;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+
+.flex-outer li button:hover{
+    background-color: #0b5ed9; /* Green */
+    color: #f2f2f2;
+}
+
+.flex-inner li {
+    width: 100px;
+}
