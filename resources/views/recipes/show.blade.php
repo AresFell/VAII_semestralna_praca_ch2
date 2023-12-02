@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('components.layout')
 
 @section('content')
     <div class="container">
@@ -18,5 +18,12 @@
                 @endforeach
             </ol>
         </div>
+        <a href="/recipes/{{$recipe->id}}/edit" class="btn btn-success w-100 py-2" tabindex="-1" role="button">Edit</a>
+        <form method="POST" action="/recipes/{{$recipe->id}}">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger w-100 py-2" type="button">Delete</button>
+        </form>
+        //TODO: nefunguje delete
     </div>
 @endsection

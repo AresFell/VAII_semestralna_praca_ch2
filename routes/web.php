@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -39,11 +40,32 @@ Route::middleware('auth')->group(function () {
 //update
 //destroy
 
+//all recipes
 Route::get('/recipes', [RecipeController::class, 'index']);
 
 //show create form
 Route::get('/recipes/create',[RecipeController::class, 'create'] )->name("recipes.create");
 
-//single listing
+//store recipe data
+Route::post('/recipes',[RecipeController::class, 'store'] );
+
+//show edit form
+Route::get('/recipes/{recipe}/edit',[RecipeController::class, 'edit']);
+
+//update recipe
+Route::put('/recipes/{recipe}',[RecipeController::class, 'update']);
+
+//delete recipe
+Route::delete('/recipes/{recipe}',[RecipeController::class, 'destroy']);
+
+//single recipe
 Route::get('/recipes/{recipe}',[RecipeController::class, 'show'] );
+
+
+//show register/create form
+Route::get('/register', [UserController::class, 'create']);
+
+//create new user
+Route::post('/users', [UserController::class, 'store']);
+
 require __DIR__.'/auth.php';

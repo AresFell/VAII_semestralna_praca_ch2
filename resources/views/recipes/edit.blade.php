@@ -2,16 +2,17 @@
 
 @section('content')
     <div class="container">
-        <form method="POST" class="form-formular" action="/recipes">
+        <form method="POST" class="form-formular" action="/recipes/{{$recipe->id}}">
             @csrf
+            @method('PUT')
             <ul class="flex-outer">
                 <li>
-                    <h1>Pridaj Recept</h1>
+                    <h2>Edituj Recept Podla Potreby</h2>
                 </li>
                 <li>
                     <label for="title">Title</label>
                     <input type="text" id="title" name="title" placeholder="Napis nazov receptu"
-                           value="{{old('title')}}">
+                           value="{{$recipe->title}}">
                     @error('title')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -19,7 +20,8 @@
                 <li>
                     <label for="ingredients">Ingrediencie</label>
                     <input type="text" id="ingredients" name="ingredients"
-                           placeholder="Napis ingrediencie za sebou, oddelene ciarkami." value="{{old('ingredients')}}">
+                           placeholder="Napis ingrediencie za sebou, oddelene ciarkami."
+                           value="{{$recipe->ingredients}}">
                     @error('ingredients')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -28,13 +30,13 @@
                     <label for="instructions">Instrukcie</label>
                     <input type="text" id="instructions" name="instructions"
                            placeholder="Napis instrukcie, najlepsie ako vety oddelene bodkami."
-                           value="{{old('instructions')}}">
+                           value="{{$recipe->instructions}}">
                     @error('instructions')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                 </li>
                 <li>
-                    <button type="submit">Pridaj</button>
+                    <button type="submit">Uloz</button>
                 </li>
             </ul>
         </form>

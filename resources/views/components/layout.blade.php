@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <title>Babičkine recepty</title>
     <link rel="icon" type="image/png" href="{{asset('images/cooking-icon.png')}}"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/style.css">
+
 
 </head>
 <body>
@@ -22,20 +25,12 @@
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/recipes" class="nav-link px-2 link-body-emphasis">Všetky Recepty</a></li>
                 <li><a href="{{route('recipes.create') }}" class="nav-link px-2 link-body-emphasis">Pridaj Recept</a></li>
-                <li><a href="" class="nav-link px-2 link-body-emphasis">Prihlasovanie</a></li>
             </ul>
 
-            <div class="flex-shrink-0 dropdown">
-                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
-                    <img src="https://github.com/AresFell.png" alt="AresFell" width="32" height="32" class="rounded-circle">
-                </a>
-                <ul class="dropdown-menu text-small shadow show" style="position: absolute; inset: 0 auto auto 0; margin: 0; transform: translate3d(-98.9333px, 33.5667px, 0px);" data-popper-placement="bottom-start">
-                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
-                </ul>
+            <div class="text-end">
+                <a href="/register" class="btn btn-secondary me-2" role="button">Login</a>
+                <a href="/register" class="btn btn-warning"  role="button">Sign-up</a>
+
             </div>
 
         </div>
@@ -78,6 +73,8 @@
 
     </footer>
 </div>
+
+<x-flash-message />
 
 </body>
 </html>
