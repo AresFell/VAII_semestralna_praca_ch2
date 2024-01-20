@@ -11,7 +11,10 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/style.css">
-
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -22,15 +25,28 @@
                 <img class="page-icon" src="{{asset('images/cooking-icon.png')}}" width="50" height="50" alt="babičkine recepty" >
             </a>
 
+
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/recipes" class="nav-link px-2 link-body-emphasis">Všetky Recepty</a></li>
-                <li><a href="{{route('recipes.create') }}" class="nav-link px-2 link-body-emphasis">Pridaj Recept</a></li>
+                @auth
+                    <li><a href="{{route('recipes.create') }}" class="nav-link px-2 link-body-emphasis">Pridaj Recept</a></li>
+                @endauth
             </ul>
 
             <div class="text-end">
-                <a href="/register" class="btn btn-secondary me-2" role="button">Login</a>
-                <a href="/register" class="btn btn-warning"  role="button">Sign-up</a>
-
+                @auth
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="{{route('logout')}}" class="btn btn-secondary me-2" role="button"
+                                         onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </a>
+                    </form>
+                @else
+                    <a href="/login" class="btn btn-secondary me-2" role="button">Prihlásenie</a>
+                    <a href="/register" class="btn btn-warning"  role="button">Registrácia</a>
+                @endauth
             </div>
 
         </div>

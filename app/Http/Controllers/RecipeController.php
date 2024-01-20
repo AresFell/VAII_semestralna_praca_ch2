@@ -6,6 +6,7 @@ use App\Models\Recipe;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class RecipeController extends Controller
 {
@@ -34,6 +35,7 @@ class RecipeController extends Controller
             'instructions' => 'required',
         ]);
 
+        $formFields['user_id'] = \auth()->user()->id;
         Recipe::create($formFields);
 
         return redirect('/')->with('message', 'Recept bol pridany uspesne!');
