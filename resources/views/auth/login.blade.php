@@ -1,7 +1,7 @@
 @extends('components.layout')
 
 @section('content')
-    <!-- Session Status -->
+    <!-- Login session Status -->
     @if(session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
@@ -34,21 +34,8 @@
                     @enderror
                 </li>
 
-                <!-- Terms of Service Checkbox -->
                 <li>
-                    <div class="checkbox-container">
-                        <label for="terms_of_service">
-                            <input type="checkbox" id="terms_of_service" name="terms_of_service" required>
-                            I agree to the <a href="/terms" target="_blank">Terms of Service</a>
-                        </label>
-                        @error('terms_of_service')
-                        <p class="text-red-500 text-xs mt-2">{{$message}}</p>
-                        @enderror
-                    </div>
-                </li>
-
-                <li>
-                    <button type="submit">Pridaj</button>
+                    <button type="submit">Prihlásenie</button>
                 </li>
             </ul>
         </form>

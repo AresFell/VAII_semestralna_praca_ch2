@@ -1,6 +1,7 @@
 @extends('components.layout')
 
 @section('content')
+    <!-- Register session Status -->
     <div class="container">
     <form method="POST" class="form-formular" action="/users">
         @csrf
@@ -20,7 +21,7 @@
             <li>
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email"
-                       required autocomplete="username"
+                       required autocomplete="email"
                        value="{{old('email')}}">
                 @error('email')
                 <p class="text-red-500 text-xs mt-2">{{$message}}</p>
@@ -43,8 +44,20 @@
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </li>
+            <!-- Terms of Service Checkbox -->
             <li>
-                <button type="submit">Pridaj</button>
+                <div class="checkbox-container">
+                    <label for="terms_of_service">
+                        <input type="checkbox" id="terms_of_service" name="terms_of_service" required>
+                        I agree to the <a href="/terms" target="_blank">Terms of Service</a>
+                    </label>
+                    @error('terms_of_service')
+                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+                    @enderror
+                </div>
+            </li>
+            <li>
+                <button type="submit">Restrácia</button>
             </li>
         </ul>
     </form>

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UploadManager;
 use Illuminate\Support\Facades\Route;
 
 
@@ -33,44 +34,50 @@ Route::middleware('auth')->group(function () {
     Route::post('/recipes/{recipe}/comments', [CommentController::class, 'store'])->name('comments.store');
 });
 
-//Resource routes
-//index
-//show
-//create
-//store
-//edit
-//update
-//destroy
+//Search recipe
+Route::get('/recipes/search', [RecipeController::class, 'search'])->name('recipes.search');
 
-//all recipes
+//Delete of a comment
+Route::delete('comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+//Load (create) a post
+Route::get("/upload", [UploadManager::class, "upload"])->name("upload");
+
+//Upload a post
+Route::post("/upload", [UploadManager::class, "uploadPost"])->name("upload.post");
+
+//Delete a post
+Route::get('/post/delete/{id}', [UploadManager::class, "delete"])->name("delete");
+
+//Edit a post
+Route::get('/post/edit/{id}', [UploadManager::class, "edit"])->name('edit');
+Route::put('/post/update/{id}', [UploadManager::class, "update"])->name('update');
+
+//Get all recipes
 Route::get('/recipes', [RecipeController::class, 'index']);
 
-//show create form
+//Show create form for recipes
 Route::get('/recipes/create',[RecipeController::class, 'create'] )->name("recipes.create")->middleware("auth");
 
-//store recipe data
+//Store recipe data
 Route::post('/recipes',[RecipeController::class, 'store'])->middleware("auth");
 
-//show edit form
+//Show edit form for recipes
 Route::get('/recipes/{recipe}/edit',[RecipeController::class, 'edit'])->middleware("auth");
 
-//update recipe
+//Update this recipe
 Route::put('/recipes/{recipe}',[RecipeController::class, 'update'])->middleware("auth");
 
-//delete recipe
+//Delete this recipe
 Route::delete('/recipes/{recipe}',[RecipeController::class, 'destroy'])->middleware("auth");
 
-//single recipe
+//Get single recipe
 Route::get('/recipes/{recipe}',[RecipeController::class, 'show'] );
 
-//show register/create form
+//Show register/create form
 Route::get('/register', [UserController::class, 'create']);
 
-//create new user
+//Create a new user
 Route::post('/users', [UserController::class, 'store']);
-
-//Route::resource('recipes', RecipeController::class);
-//Route::post('recipes/{recipe}/comments', [CommentController::class, 'store'])->name('comments.store');
-
 
 require __DIR__.'/auth.php';

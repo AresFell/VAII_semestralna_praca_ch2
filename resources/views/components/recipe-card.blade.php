@@ -1,6 +1,6 @@
 @props(['recipe'])
 
-<div class="recipe">
+<div class="recipe ">
     <h2><a href="/recipes/{{$recipe['id']}}">{{$recipe['title']}}</a></h2>
     <ul>
         @foreach (explode(', ', $recipe->ingredients) as $ingredient)

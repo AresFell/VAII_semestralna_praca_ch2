@@ -27,6 +27,24 @@ class DatabaseSeeder extends Seeder
             'password' => 'admin123',
         ]);
 
+        User::create([
+            'name' => 'Remus Fell',
+            'email' => 'remus@gmail.com',
+            'password' => 'remus123',
+        ]);
+
+        User::create([
+            'name' => 'Rose Anabella',
+            'email' => 'rose@gmail.com',
+            'password' => 'rose123',
+        ]);
+
+        User::create([
+            'name' => 'Edo Pap',
+            'email' => 'edo@gmail.com',
+            'password' => 'edo123',
+        ]);
+
         Recipe::create([
             'user_id' => 1,
             'title' => 'Perník',

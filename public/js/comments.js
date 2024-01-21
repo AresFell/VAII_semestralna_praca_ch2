@@ -1,18 +1,16 @@
-<!-- JavaScript for Auto-Refreshing Comments -->
-    $(document).ready(function() {
-    // Handle form submission using AJAX
+$(document).ready(function() {
     $('#commentForm').submit(function(e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
             url: $(this).attr('action'),
             data: $(this).serialize(),
-            dataType: 'json', // Expect JSON response
+            dataType: 'json',
             success: function(response) {
                 console.log(response);
-                // Refresh comments container
+                // refresh comments container
                 $('#commentsContainer').html(response.commentsHtml);
-                // Clear the comment textarea
+                // clear the comment textarea
                 $('#content').val('');
             },
             error: function(error) {
