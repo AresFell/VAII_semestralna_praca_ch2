@@ -6,6 +6,7 @@ use App\Models\Recipe;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class RecipeController extends Controller
 {
@@ -22,11 +23,13 @@ class RecipeController extends Controller
             'recipe' => $recipe
         ]);
     }
-    //show create form
+
+    //Show create form
     public function create() {
         return view('recipes.create');
     }
-    //store recipe data
+
+    //Store (save) recipe data
     public function store(Request $request){
         $formFields = $request->validate([
             'title' => ['required', Rule::unique('recipes','title')],
@@ -34,17 +37,18 @@ class RecipeController extends Controller
             'instructions' => 'required',
         ]);
 
+        $formFields['user_id'] = \auth()->user()->id;
         Recipe::create($formFields);
 
         return redirect('/')->with('message', 'Recept bol pridany uspesne!');
     }
 
-    //show edit form
+    //Show edit form
     public function edit(Recipe $recipe) {
         return view('recipes.edit', ['recipe' => $recipe]);
     }
 
-    //update recipe data
+    //Update recipe data
     public function update(Request $request, Recipe $recipe){
         $formFields = $request->validate([
             'title' => 'required',
@@ -57,10 +61,21 @@ class RecipeController extends Controller
         return back()->with('message', 'Recept bol updatnuty uspesne!');
     }
 
-    //delete listing
+    //Delete a listing
     public function destroy(Recipe $recipe){
         $recipe->delete();
         return redirect('/');
     }
 
+    //Search based of what has a string
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $recipes = Recipe::where('title', 'like', '%' . $query . '%')->get();
+
+        return $recipes;
+    }
 }
+
+//compact('recipes')
